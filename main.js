@@ -24,6 +24,12 @@ function createAddWindow() {
     height: 200,
     title: 'Add New Todo'
   })
+
+  addWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'newtodo.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
 }
 
 const menuTemplate = [
