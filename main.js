@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const url = require('url')
 const path = require('path')
 
@@ -12,4 +12,13 @@ app.on('ready', () => {
     protocol: 'file:',
     slashes: true
   }))
+
+  const mainMenu = Menu.buildFromTemplate(menuTemplate)
+  Menu.setApplicationMenu(mainMenu)
 })
+
+const menuTemplate = [
+  {
+    label: 'File'
+  }
+]
