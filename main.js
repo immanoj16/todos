@@ -14,6 +14,10 @@ app.on('ready', () => {
     slashes: true
   }))
 
+  mainWindow.on('closed', () => {
+    app.quit()
+  })
+
   const mainMenu = Menu.buildFromTemplate(menuTemplate)
   Menu.setApplicationMenu(mainMenu)
 })
