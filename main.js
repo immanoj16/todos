@@ -19,6 +19,14 @@ app.on('ready', () => {
 
 const menuTemplate = [
   {
-    label: 'File'
+    label: 'File',
+    submenu: [
+      { label: 'New Todo' },
+      { label: 'Quit' }
+    ]
   }
 ]
+
+if (process.platform === 'darwin') {
+  menuTemplate.unshift({})
+}
