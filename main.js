@@ -42,6 +42,7 @@ const menuTemplate = [
     submenu: [
       {
         label: 'New Todo',
+        accelerator: process.platform === 'darwin' ? 'Command+N' : 'Ctrl+N',
         click: function () {
           createAddWindow()
         }
@@ -59,4 +60,19 @@ const menuTemplate = [
 
 if (process.platform === 'darwin') {
   menuTemplate.unshift({})
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  menuTemplate.push({
+    label: 'View',
+    submenu: [
+      {
+        label: 'Toggle Developer Tool',
+        accelerator: process.platform === 'darwin' ? 'Command+Alt+I' : 'Ctrl+Shift+I',
+        click: function (item, focusedWindow) {
+          focusedWindow.toggleDevTools()
+        }
+      }
+    ]
+  })
 }
