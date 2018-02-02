@@ -22,7 +22,13 @@ const menuTemplate = [
     label: 'File',
     submenu: [
       { label: 'New Todo' },
-      { label: 'Quit' }
+      {
+        label: 'Quit',
+        accelerator: process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
+        click: function() {
+          app.quit()
+        }
+      }
     ]
   }
 ]
